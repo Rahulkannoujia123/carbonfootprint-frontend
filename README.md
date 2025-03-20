@@ -1,12 +1,77 @@
-# React + Vite
+# CarbonTrackr Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for **CarbonTrackr**, a minimal proof-of-concept web application to help users track and offset their carbon footprint using AI recommendations.
 
-Currently, two official plugins are available:
+## Project Structure
+```
+carbonfootprint-frontend/
+├── README.md
+├── main.jsx
+├── App.jsx
+├── styles/
+│   └── global.css
+└── package.json
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **React** (with Vite)
+- **Zustand** for state management
+- **Shadcn** (optional for styling)
 
-## Expanding the ESLint configuration
+## Features
+- Calculate carbon footprint based on travel distance.
+- Receive AI-generated recommendations for reducing carbon emissions.
+- Persist results and recommendations using Zustand and local storage.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/Rahulkannoujia123/carbonfootprint-frontend.git
+cd carbonfootprint-frontend
+```
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run the development server:
+```bash
+npm run dev
+```
+
+## Usage
+1. Enter the travel distance (in kilometers) in the input field.
+2. Click the "Calculate" button to get the carbon footprint and AI recommendations.
+
+## API Endpoint
+The frontend interacts with a backend API at:
+```
+POST http://localhost:5000/calculate
+```
+Expected request body:
+```json
+{
+  "distance": 100
+}
+```
+Expected response:
+```json
+{
+  "footprint": 25.5,
+  "recommendations": [
+    "Use public transport",
+    "Carpool with others"
+  ]
+}
+```
+
+## Deployment
+- Frontend can be hosted on Vercel/Netlify with a simple push to the repository.
+- Ensure the backend is deployed and update the API endpoint in `App.jsx`.
+
+## Author
+- **Rahul Kannoujia**
+
+## License
+This project is licensed under the MIT License.
+
