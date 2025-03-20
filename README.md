@@ -46,7 +46,7 @@ npm run dev
 ## API Endpoint
 The frontend interacts with a backend API at:
 ```
-POST http://localhost:5000/calculate
+POST https://carbon-footprint-cyan.vercel.app/calculate
 ```
 Expected request body:
 ```json
